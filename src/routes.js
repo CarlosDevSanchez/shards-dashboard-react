@@ -1,58 +1,37 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-// Layout Types
 import { DefaultLayout } from "./layouts";
 
-// Route Views
-import BlogOverview from "./views/BlogOverview";
-import UserProfileLite from "./views/UserProfileLite";
-import AddNewPost from "./views/AddNewPost";
-import Errors from "./views/Errors";
-import ComponentsOverview from "./views/ComponentsOverview";
-import Tables from "./views/Tables";
-import BlogPosts from "./views/BlogPosts";
+import Home from "./views/Home";
+import User from "./views/Users/User";
+import Profile from "./views/Users/Profile";
 
 export default [
   {
     path: "/",
     exact: true,
-    layout: DefaultLayout,
-    component: () => <Redirect to="/blog-overview" />
+    layout: Home,
+    component: () => <Redirect to="/home" />
   },
   {
-    path: "/blog-overview",
-    layout: DefaultLayout,
-    component: BlogOverview
+    path: "/home",
+    layout: Home,
+    component: Home
   },
   {
-    path: "/user-profile-lite",
-    layout: DefaultLayout,
-    component: UserProfileLite
+    path: "/user/index",
+    layout: User,
+    component: User
   },
   {
-    path: "/add-new-post",
-    layout: DefaultLayout,
-    component: AddNewPost
+    path: "/user/profile",
+    layout: Profile,
+    component: Profile
   },
   {
-    path: "/errors",
+    path: "/vip",
     layout: DefaultLayout,
-    component: Errors
-  },
-  {
-    path: "/components-overview",
-    layout: DefaultLayout,
-    component: ComponentsOverview
-  },
-  {
-    path: "/tables",
-    layout: DefaultLayout,
-    component: Tables
-  },
-  {
-    path: "/blog-posts",
-    layout: DefaultLayout,
-    component: BlogPosts
+    component: Home
   }
 ];
