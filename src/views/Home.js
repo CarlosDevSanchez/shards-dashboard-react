@@ -4,6 +4,7 @@ import '../assets/modal/style.css';
 import '../assets/modal/responsive.css';
 import '../assets/style.css';
 import '../assets/responsive.css';
+import MyComponent from '../components/MyComponent';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 const client = new W3CWebSocket('ws://localhost:5000');
 
@@ -28,7 +29,6 @@ export default class Home extends Component{
     }
 
     this.handlerChange = this.handlerChange.bind(this);
-    this.hanlderSubmit = this.hanlderSubmit.bind(this);
     this.handlerSubmitRegister = this.handlerSubmitRegister.bind(this);
   }
 
@@ -63,28 +63,7 @@ export default class Home extends Component{
     })
   }
 
-  hanlderSubmit(e){
-    e.preventDefault()
-    const { email, password } = this.state
-      if(this.validation('sesion')){
-      const dataI = {
-        process_: "verificar_usuario",
-        data_: [email, password],
-      };
-      client.send(JSON.stringify(dataI));
-      client.onmessage = (message) => {
-        let res = JSON.parse(message.data);
-        localStorage.setItem('token', res['resp_'][13]);
-        if(!res.error_){
-          window.location.href = "/user/index";
-        }
-      };
-    }else{
-      this.setState({
-        message: 'Error de validacion de campos.'
-      })
-    }
-  }
+  
 
   handlerSubmitRegister(e){
     e.preventDefault()
@@ -499,47 +478,7 @@ export default class Home extends Component{
                     {this.state.message}
                   </div>
                 }
-                <form name="login" className="text-left" onSubmit={this.hanlderSubmit}>
-                  <div className="form-group">
-                    <label for="email2">Dirección de correo electrónico</label>
-                    <input type="email" name="email" className="form-control" id="email2"
-                      aria-describedby="emailHelp" placeholder="Ingrese correo electrónico" value={this.state.email} onChange={this.handlerChange} />
-                  </div>
-                  <div className="form-group">
-                    <label for="pass2">Contraseña</label>
-                    <input type="password" name="password" id="pass2" className="form-control"
-                      aria-describedby="emailHelp" placeholder="Introduce la contraseña" value={this.state.password} onChange={this.handlerChange} />
-                  </div>
-                  <div className="form-group">
-                    <p className="text-center">Al registrarse, acepta nuestros <a href="#" className="text-danger">Términos de uso</a></p>
-                  </div>
-                  <div className="col-md-12 text-center ">
-                    <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm" onclick="">
-                      INICIAR SESIÓN
-                    </button>
-                  </div>
-                  <div className="col-md-12 ">
-                    <div className="login-or">
-                      <hr className="hr-or" />
-                      <span className="span-or">o</span>
-                    </div>
-                  </div>
-                  <div className="col-md-12 mb-3">
-                    <p className="text-center">
-                      <a href="javascript:void();" className="google btn mybtn"><i className="fa fa-google-plus">
-                        </i> Registrarse usando Google
-                      </a>
-                    </p>
-                  </div>
-                  <div className="form-group text-center">
-                    <p className="text-center text-dark">¿No tienes cuenta?
-                      <a href="" id="signup" data-toggle="modal"
-                        data-target="#modalContactForm" data-dismiss="modal">
-                          <h5 className="text-dark p-2">Registrate aquí</h5>
-                      </a>
-                    </p>
-                  </div>
-                </form>
+                <MyComponent />
             </div>
           </div>
         </div>
@@ -585,7 +524,7 @@ export default class Home extends Component{
                   <input type="password" name="repetPassword" onChange={this.handlerChange} value={this.state.repetPassword} id="passw3" className="form-control"
                     aria-describedby="emailHelp" placeholder="Repetir contraseña" />
                 </div>
-                <button type="submit" className="btn btn-block mybtn btn-primary tx-tfm mb-4">Empiece gratis</button>
+                <button type="submit" className="btn btn-block mybtn btn-secreto-primary tx-tfm mb-4">Empiece gratis</button>
               </form>
             </div>
           </div>

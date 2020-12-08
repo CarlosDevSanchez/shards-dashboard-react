@@ -8,7 +8,7 @@ class ToyZone extends Component {
       super(props);
   
       this.state = {
-        hover: false
+        hover: false,
       };
       
       this.onDragOver = this.onDragOver.bind(this);
@@ -74,6 +74,10 @@ class ToyZone extends Component {
                       data_: {"token": localStorage.getItem('token'), 'url': downloadURL},
                   };
                   client.send(JSON.stringify(dataI));
+              }
+              client.onmessage = (message) => {
+                let res = JSON.parse(message.data);
+                client.close();
               }
             });
         })

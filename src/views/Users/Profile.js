@@ -20,6 +20,7 @@ export default class Profile extends Component{
             phone: '',
             email: '',
             user: '',
+            images: [],
             success: false
         }
         this.handlerSubmit = this.handlerSubmit.bind(this);
@@ -40,9 +41,9 @@ export default class Profile extends Component{
         client.onmessage = (message) => {
             let res = JSON.parse(message.data);
             console.log(res);
-            const { name, lastName, document, email, country, phone, user } = res['resp_'][3];
+            const { name, lastName, document, email, country, phone, user, images } = res['resp_'][3];
             this.setState({
-                name, lastName, document, email, country, phone, user
+                name, lastName, document, email, country, phone, user, images
             })
             client.close();
         };
@@ -82,7 +83,7 @@ export default class Profile extends Component{
     }
     
     render(){
-        const { name, lastName, document, email, country, phone, user } = this.state;
+        const { name, lastName, document, email, country, phone, user, images } = this.state;
         return(
             <div style={{margin: 0, padding: 0, boxSizing: 'border-box'}}>
                 <NavbarUser />
@@ -171,24 +172,15 @@ export default class Profile extends Component{
                                     <form>
                                         <h3 className="mb-4" style={{color: 'gray'}}>Mi Galeria</h3>
                                         <div className="row mb-3">
-                                            <div className="col-md-4">
-                                                <a href="">
-                                                    <img src={require('../../images/screen-default.jpeg')} style={{width: '100%'}} />
-                                                </a>
-                                            </div>
-                                            <div className="col-md-4">
-                                                <a href="">
-                                                    <img src={require('../../images/screen-default.jpeg')} style={{width: '100%'}} />
-                                                </a>
-                                            </div>
-                                            <div className="col-md-4">
-                                                <a href="">
-                                                    <img src={require('../../images/screen-default.jpeg')} style={{width: '100%'}} />
-                                                </a>
-                                            </div>
+                                            {images.map(item => (
+                                                <div className="col-md-4">
+                                                    <a href="">
+                                                        <img src={item} style={{width: '100%'}} />
+                                                    </a>
+                                                </div>
+                                            ))}
                                         </div>
                                         <Dropzone />
-                                        <button className="btn btn-secreto-primary float-right mt-5">Guardar y Enviar</button>
                                     </form>
                                 </div>
                                 }
