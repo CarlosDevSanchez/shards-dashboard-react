@@ -8,6 +8,54 @@ import MyComponent from '../components/MyComponent';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 const client = new W3CWebSocket('ws://localhost:5000');
 
+const categories = [
+  {
+    name: 'Universitarias',
+    image: require('../images/categorias/image_universitaria.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'VIP',
+    image: require('../images/categorias/image_vip.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'Escorts',
+    image: require('../images/categorias/image_scort.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'Acompañante',
+    image: require('../images/categorias/image_acompañante.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'Pareja',
+    image: require('../images/categorias/image_pareja.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'Gigoló',
+    image: require('../images/categorias/image_gigolo.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'Show Privado',
+    image: require('../images/categorias/image_showprivado.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'Milf',
+    image: require('../images/categorias/image_madura.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  },
+  {
+    name: 'Swinger',
+    image: require('../images/categorias/image_swinger.png'),
+    paragraph: 'Pulsa aqui para ver más'
+  }
+]
+
 export default class Home extends Component{
 
   constructor(props){
@@ -241,12 +289,13 @@ export default class Home extends Component{
                 <p>Todos tus Deseos Sexuales, Quedan en Secreto</p>
               </div>
               <div className="row">
+              {categories.map(category => (
                 <div className="col-lg-4 col-md-6">
                   <div className="speaker" data-aos="fade-up" data-aos-delay="100">
-                    <img src={require("../images/categorias/image_universitaria.png")} alt="universitarias" className="img-fluid"/>
+                    <img src={category.image} alt={category.name} className="img-fluid"/>
                     <div className="details">
-                      <h3><a href="">Universitarias</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
+                      <h3><a href="">{category.name}</a></h3>
+                      <p>{category.paragraph}</p>
                       <div className="social">
                         <a href="" className="ml-1"><i className="fa fa-heart-o"></i></a>
                         <a href="" className="ml-1"><i className="fa fa-transgender"></i></a>
@@ -256,6 +305,7 @@ export default class Home extends Component{
                     </div>
                   </div>
                 </div>
+              ))}
               </div>
             </div>
           </section>
