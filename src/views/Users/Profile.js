@@ -133,29 +133,29 @@ export default class Profile extends Component{
                                         <div className="form-row">
                                             <div className="form-group col-md-6">
                                                 <label for="inputName" style={{color: 'gray'}} >Nombre</label>
-                                                <input type="text" name="name" className="form-control" style={{background: 'transparent', borderColor: 'gray'}} onChange={this.handlerChange} value={name} id="inputName" placeholder="Nombres" />
+                                                <input type="text" name="name" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={name} id="inputName" placeholder="Nombres" />
                                             </div>
                                             <div className="form-group col-md-6">
                                                 <label for="inputLastName" style={{color: 'gray'}} >Apellidos</label>
-                                                <input type="text" name="lastName" className="form-control" style={{background: 'transparent', borderColor: 'gray'}} onChange={this.handlerChange} value={lastName} id="inputLastName" placeholder="Apellidos" />
+                                                <input type="text" name="lastName" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={lastName} id="inputLastName" placeholder="Apellidos" />
                                             </div>
                                             <div className="form-group col-md-4">
                                                 <label for="inputNationality" style={{color: 'gray'}} >Documento</label>
-                                                <input type="text" className="form-control" name="document" style={{background: 'transparent', borderColor: 'gray'}} onChange={this.handlerChange} value={document} id="inputNationality" placeholder="Documento" />
+                                                <input type="text" className="form-control" name="document" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={document} id="inputNationality" placeholder="Documento" />
                                             </div>
                                             <div className="form-group col-md-4">
                                                 <label for="inputNationality" style={{color: 'gray'}} >Nacionalidad</label>
-                                                <input type="text" className="form-control" name="country" style={{background: 'transparent', borderColor: 'gray'}} onChange={this.handlerChange} value={country} id="inputNationality" placeholder="Pais de origen" />
+                                                <input type="text" className="form-control" name="country" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={country} id="inputNationality" placeholder="Pais de origen" />
                                             </div>
                                             <div className="form-group col-md-4">
                                                 <label for="inputFhone" style={{color: 'gray'}} >Telefono</label>
-                                                <input type="text" className="form-control" name="phone" style={{background: 'transparent', borderColor: 'gray'}} onChange={this.handlerChange} value={phone} id="inputphone" placeholder="Numero telefonico" />
+                                                <input type="text" className="form-control" name="phone" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={phone} id="inputphone" placeholder="Numero telefonico" />
                                             </div>
                                         </div>
                                         <div className="form-row">
                                             <div className="form-group col-md-8">
                                                 <label for="inputEmail4"  style={{color: 'gray'}} >Correo Electronico</label>
-                                                <input type="email" className="form-control" style={{background: 'transparent', borderColor: 'gray'}} value={email}  id="inputEmail4" placeholder="Correo" />
+                                                <input type="email" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} value={email}  id="inputEmail4" placeholder="Correo" />
                                             </div>
                                         </div>
                                         <button className="btn btn-secreto-primary float-right mt-5" type="submit">Guardar y Enviar</button>
@@ -163,9 +163,9 @@ export default class Profile extends Component{
                                 </div>
                                 }
                                 {this.state.viewActive === 'anunciate' &&
-                                <div className={"card card-body"} style={{background: '#1d1919'}}>
-                                    <FormularioPublico />
-                                </div>
+                                    <div className={"card card-body"} style={{background: '#1d1919'}}>
+                                        <FormularioPublico />
+                                    </div>
                                 }
                                 {this.state.viewActive === 'galeria' &&
                                 <div className={"card card-body"} style={{background: '#1d1919'}}>
@@ -191,19 +191,19 @@ export default class Profile extends Component{
                                             <h3 style={{color: 'gray'}} className="mb-4" id="commercial">Mis Servicio</h3>
                                             <div className="form-group">
                                                 <label for="currency-field" style={{color: 'gray'}}>CATEGORIA SILVER</label>
-                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa por menos de S/199.00 por hora"/>
+                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa por menos de S/199.00 por hora"/>
                                             </div>
                                             <div className="form-group">
                                                 <label for="currency-field" style={{color: 'gray'}}>CATEGORIA GOLD</label>
-                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa entre S/200.00 y S/299.00 por hora"/>
+                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa entre S/200.00 y S/299.00 por hora"/>
                                             </div>
                                             <div className="form-group">
                                                 <label for="currency-field" style={{color: 'gray'}}>CATEGORIA PREMIUN</label>
-                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa Entre S/ 300.00 Y S/399.00 por hora"/>
+                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa Entre S/ 300.00 Y S/399.00 por hora"/>
                                             </div>
                                             <div className="form-group">
                                                 <label for="currency-field" style={{color: 'gray'}}>CATEGORIA VIP</label>
-                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa de S/ 400.00 en adelante"/>
+                                                <input type="text" name="currency-field" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} className="form-control" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="Tarifa de S/ 400.00 en adelante"/>
                                             </div>
                                             <button className="btn btn-secreto-primary float-right mt-5">Guardar y Enviar</button>
                                         </form>
