@@ -214,7 +214,7 @@ export default class Home extends Component{
                     </div>
                     <div className="text mb-4">
                       <a href="#speakers" id="btn-anunciate" className="btn btn-default btn-rounded" >
-                        ENTRAR
+                        ANUNCIATE
                       </a>
                     </div>
                     <img className="img-fluid mt-0" src={require("../images/image_googlePlay.png")} style={{width: 160}} alt="alternative" />
@@ -297,138 +297,10 @@ export default class Home extends Component{
                       <h3><a href="">{category.name}</a></h3>
                       <p>{category.paragraph}</p>
                       <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="200">
-                    <img src={require("../images/categorias/image_vip.png")} alt="Vip" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Vip</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="300">
-                    <img src={require("../images/categorias/image_scort.png")} alt="Escorts" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Escorts</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="100">
-                    <img src={require("../images/categorias/image_acompañante.png")} alt="Acompañante" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Acompañante</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="200">
-                    <img src={require("../images/categorias/image_pareja.png")} alt="Pareja" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Pareja</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="300">
-                    <img src={require("../images/categorias/image_gigolo.png")} alt="Gigoló" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Gigoló</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="100">
-                    <img src={require("../images/categorias/image_showprivado.png")} alt="Show Privado" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Show Privado</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="200">
-                    <img src={require("../images/categorias/image_madura.png")} alt="Milf" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Milf</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div className="col-lg-4 col-md-6">
-                  <div className="speaker" data-aos="fade-up" data-aos-delay="300">
-                    <img src={require("../images/categorias/image_swinger.png")} alt="Swinger" className="img-fluid"/>
-                    <div className="details">
-                      <h3><a href="">Swinger</a></h3>
-                      <p>Pulsa Aquí para ver Mas</p>
-                      <div className="social">
-                        <a none="" className="ml-1"><i className="fa fa-heart-o"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-transgender"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
-                        <a none="" className="ml-1"><i className="fa fa-instagram"></i></a>
+                        <a href="" className="ml-1"><i className="fa fa-heart-o"></i></a>
+                        <a href="" className="ml-1"><i className="fa fa-transgender"></i></a>
+                        <a href="" className="ml-1"><i className="fa fa-whatsapp"></i></a>
+                        <a href="" className="ml-1"><i className="fa fa-instagram"></i></a>
                       </div>
                     </div>
                   </div>
