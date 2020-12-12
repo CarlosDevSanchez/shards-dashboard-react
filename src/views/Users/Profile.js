@@ -7,7 +7,7 @@ import NavbarUser from '../../components/NavbarUser';
 import Dropzone from '../../components/Dropzone';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import FormularioPublico from '../../components/Formularios/FormularioPublico';
-
+import WebCam from '../../components/WebCam';
 export default class Profile extends Component{
     constructor(props){
         super(props)
@@ -105,7 +105,7 @@ export default class Profile extends Component{
                                             <a href="javascript:void;" onClick={() => this.setState({ viewActive: 'galeria' })}>Mi galeria</a>
                                         </li>
                                         <li role="presentation">
-                                            <a href="javascript:void;" onClick={() => this.setState({ viewActive: 'pagos' })}>Pagos de mi anuncio</a>
+                                            <a href="javascript:void;" onClick={() => this.setState({ viewActive: 'pagos' })}>Pagos de las tarifas</a>
                                         </li>
                                         <li role="presentation">
                                             <a href="javascript:void;" onClick={() => this.setState({ viewActive: 'contacto' })}>Contacto</a>
@@ -180,8 +180,9 @@ export default class Profile extends Component{
                                                 </div>
                                             ))}
                                         </div>
-                                        <Dropzone />
+                                        <a href="" className="btn btn-anunciate" data-toggle="modal" data-target="#camera">Tomar selfie</a> 
                                     </form>
+                                    
                                 </div>
                                 }
                                 {this.state.viewActive === 'pagos' &&
@@ -208,6 +209,24 @@ export default class Profile extends Component{
                                         </form>
                                     </div>
                                 }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" tabindex="-1" id="camera">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-dark">Tomar Captura</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body row justify-content-center">
+                                <WebCam />
+                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import { DefaultLayout } from "./layouts";
 import Home from "./views/Home";
 import User from "./views/Users/User";
 import Profile from "./views/Users/Profile";
+import PerfilPublico from "./views/Users/PerfilPublico";
 
 export default [
   {
@@ -28,6 +29,11 @@ export default [
     path: "/user/profile",
     layout: Profile,
     component: Profile
+  },
+  {
+    path: "/user/profile_public",
+    layout: PerfilPublico,
+    component: PerfilPublico
   },
   {
     path: "/vip",

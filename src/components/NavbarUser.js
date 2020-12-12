@@ -42,6 +42,7 @@ export default class NavbarUser extends Component{
                         <ul className="nav-menu">
                             <li className=""><a href="javascript:void(0);" onClick={() => window.location.href = "/user/index"}>Inicio</a></li>
                             <li className=""><a href="javascript:void(0);" onClick={() => window.location.href = "/user/profile"}>Mi Perfil</a></li>
+                            <li className=""><a href="javascript:void(0);" onClick={() => window.location.href = "/user/profile_public"}>Mi Perfil Publico</a></li>
                             <li className="px-1" style={{color: 'gray', marginTop: 6}}>Bienvenido(a): {this.state.user.user}</li>
                             <li className="buy-tickets"><a href="javascript:void(0);" onClick={() => {localStorage.clear(); window.location.href = "/home"}}>Salir</a></li>
                         </ul>
