@@ -172,13 +172,15 @@ export default class Profile extends Component{
                                     <form>
                                         <h3 className="mb-4" style={{color: 'gray'}}>Mi Galeria</h3>
                                         <div className="row mb-3">
-                                            {images.map(item => (
-                                                <div className="col-md-4">
-                                                    <a href="">
-                                                        <img src={item} style={{width: '100%'}} />
-                                                    </a>
-                                                </div>
-                                            ))}
+                                            {images && 
+                                                images.map(item => (
+                                                    <div className="col-md-4">
+                                                        <a href="">
+                                                            <img src={item} style={{width: '100%'}} />
+                                                        </a>
+                                                    </div>
+                                                ))
+                                            }
                                         </div>
                                         <a href="" className="btn btn-anunciate" data-toggle="modal" data-target="#camera">Tomar selfie</a> 
                                     </form>
