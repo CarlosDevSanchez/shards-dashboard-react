@@ -81,18 +81,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:focus {
-  background: #e0072f;
+  background:#ff0000;
   color: #fff;
   outline: none;
 }
 
 .back-to-top:hover {
-  background: #e0072f;
+  background: #ff0000;
   color: #fff;
 }
 
 .btn-secreto-primary{
-  background: #e0072f !important;
+  background: #ff0000 !important;
   color: #fff !important;
   border-color: #fff!important;
   box-shadow: none !important;
@@ -184,7 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header #logo h1 span {
-  color: #f82249;
+  color: #ff0000;
 }
 
 #header #logo h1 a, #header #logo h1 a:hover {
@@ -356,7 +356,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu ul li:hover > a {
-  background: #f82249;
+  background: #ff0000;
   color: #fff;
 }
 
@@ -427,7 +427,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mobile-nav ul li a:hover {
-  color: #f82249;
+  color:#ff0000;
 }
 
 #mobile-nav ul li li {
@@ -444,11 +444,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: #f82249;
+  color:#ff0000;
 }
 
 #mobile-nav ul .menu-item-active {
-  color: #f82249;
+  color: #ff0000;
 }
 
 #mobile-body-overly {
@@ -584,7 +584,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: auto;
 }
 #aui_anunciate {
-  color: #fa1b1b;
+  color: #ff0000;
   margin: 0 10px;
 }
 
@@ -632,7 +632,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro h1 span {
-  color: #f82249;
+  color: #ff0000;
 }
 
 @media (max-width: 991px) {
@@ -656,7 +656,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #intro .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#f82249 50%, rgba(101, 111, 150, 0.15) 52%);
+  background: radial-gradient(#ff0000 50%, rgba(101, 111, 150, 0.15) 52%);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -864,7 +864,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #speakers .speaker .details a:hover {
-  color: #f82249;
+  color:#ff0000;
 }
 
 #speakers .speaker:hover .details {
@@ -899,7 +899,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #speakers-details .details .social a:hover {
-  background: #f82249;
+  background: #ff0000;
   color: #fff;
 }
 
