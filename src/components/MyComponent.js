@@ -83,7 +83,6 @@ class MyComponentLogin extends React.Component {
                 <div className="form-group">
                     <p className="text-center">Al registrarse, acepta nuestros <a href="#" className="text-danger">Términos de uso</a></p>
                 </div>
-                <ReCAPTCHA sitekey="6Ldxvv4ZAAAAABqDmPnHdJ4W9ghnCM4YoNghuVwb" onChange={this.onRecaptcha} />
                 <button type="submit" className="btn btn-block mybtn btn-secreto-primary tx-tfm mt-1" onclick="">
                     INICIAR SESIÓN
                 </button>

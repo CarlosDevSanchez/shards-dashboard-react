@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ref } from '../firebase';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-
 class ToyZone extends Component {
     constructor(props) {
       super(props);
@@ -52,35 +51,27 @@ class ToyZone extends Component {
      * Handle adding files through file dialog
      * @param {Object} event
      */
-    onFilesAdded(event) {
+    async onFilesAdded(event) {
       this.setState({ hover: true });
       const file = event.target.files[0];
       try{
-        const reference = ref.ref(`galeria/${file.name}`);
-        const task = reference.put(file);
-        task.on('state_changed', (snapshot) => {
-            let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            this.setState({
-                uploadValue: percentage
-            })
-        }, (error) => {
-                console.error(error.message)
-        }, () => {
-            task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-              const client = new W3CWebSocket('ws://localhost:5000');
-              client.onopen = () => {
-                  const dataI = {
-                      process_: "actualizar_mi_galeria",
-                      data_: {"token": localStorage.getItem('token'), 'url': downloadURL},
-                  };
-                  client.send(JSON.stringify(dataI));
-              }
-              client.onmessage = (message) => {
-                let res = JSON.parse(message.data);
-                client.close();
-              }
-            });
-        })
+        const reference = ref.ref(`galeria/${file.name + new Date().toTimeString()}`);
+        await reference.put(file).then(snapshot => {
+          snapshot.ref.getDownloadURL().then(downloadURL => {
+            const client = new W3CWebSocket('ws://localhost:5000');
+            client.onopen = () => {
+                const dataI = {
+                    process_: "actualizar_mi_galeria",
+                    data_: {"token": localStorage.getItem('token'), 'url': downloadURL},
+                };
+                client.send(JSON.stringify(dataI));
+            }
+            client.onmessage = (message) => {
+              let res = JSON.parse(message.data);
+              client.close();
+            }
+          })
+        });
         this.setState({ hover: false });
       }catch(e){
         console.log(e);
@@ -111,7 +102,7 @@ class ToyZone extends Component {
           onClick={this.openFileDialog}
           onDragLeave={this.onDragLeave}
           onDragOver={this.onDragOver}
-          className={hover ? "drop-zone-container hover" : "drop-zone-container"}
+          className={hover ? "btn btn-anunciate" : "btn btn-anunciate"}
         >
           <input
             ref={this.fileInputRef}
@@ -120,7 +111,7 @@ class ToyZone extends Component {
             onChange={this.onFilesAdded}
           />
           <div className="drag-files">
-            {!hover ? 'Cargar imagenes' : this.state.uploadValue}
+            {!hover ? 'Cargar imagen' : 'Cargando....'}
           </div>
         </div>
       );

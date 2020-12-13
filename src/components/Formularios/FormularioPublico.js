@@ -1,6 +1,69 @@
 import React, { Component } from 'react';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
+const hombre = [
+    'Gigoló',
+    'Show Privado',
+    'Pareja'
+]
+const mujer = [
+    'Universitaria',
+    'VIP',
+    'Escort',
+    'Acompañante',
+    'Pareja',
+    'Show Privado',
+    'Milf',
+    'Swinger'
+]
+const categories = [
+    {
+      name: 'Universitarias',
+      image: require('../../images/categorias/image_universitaria.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'VIP',
+      image: require('../../images/categorias/image_vip.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'Escorts',
+      image: require('../../images/categorias/image_scort.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'Acompañante',
+      image: require('../../images/categorias/image_acompañante.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'Pareja',
+      image: require('../../images/categorias/image_pareja.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'Gigoló',
+      image: require('../../images/categorias/image_gigolo.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'Show Privado',
+      image: require('../../images/categorias/image_showprivado.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'Milf',
+      image: require('../../images/categorias/image_madura.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    },
+    {
+      name: 'Swinger',
+      image: require('../../images/categorias/image_swinger.png'),
+      paragraph: 'Pulsa aqui para ver más'
+    }
+  ]
+
 export default class FormularioPublico extends Component{
     constructor(props){
         super(props)
@@ -21,7 +84,15 @@ export default class FormularioPublico extends Component{
             viaje: false,
             aboutme: '',
             success: false,
-            message: ''
+            message: '',
+            category: '',
+            hours1: 0,
+            hours2: 0,
+            hours3: 0,
+            hours4: 0,
+            amanecida: 0,
+            findesemana: 0,
+            sexo: ''
         }
         this.handlerChange = this.handlerChange.bind(this);
         this.handlerSubmit = this.handlerSubmit.bind(this);
@@ -39,6 +110,7 @@ export default class FormularioPublico extends Component{
         };
         client.onmessage = (message) => {
             let res = JSON.parse(message.data);
+            console.log(res);
             this.setState({
                 ...res.resp_[3].publico
             })
@@ -65,6 +137,14 @@ export default class FormularioPublico extends Component{
             domicilio: this.state.domicilio,
             viaje: this.state.viaje,
             aboutme: this.state.aboutme,
+            category: this.state.category,
+            hours1: this.state.hours1,
+            hours2: this.state.hours2,
+            hours3: this.state.hours3,
+            hours4: this.state.hours4,
+            amanecida: this.state.amanecida,
+            findesemana: this.state.findesemana,
+            sexo: this.state.sexo
         };
         client.onopen = () => {
             const dataI = {
@@ -89,9 +169,9 @@ export default class FormularioPublico extends Component{
     }
 
     handlerChangeCheckBox(e){
-        const { name, value } = e.target;
+        const { name, checked } = e.target;
         this.setState({
-            [name]: !!value
+            [name]: checked
         })
     }
 
@@ -103,7 +183,7 @@ export default class FormularioPublico extends Component{
     }
 
     render(){
-        const { dpropio, hotel, cabaña, domicilio, viaje, name, aboutme, linkTwitter, linkInstagram, age, distrito, departament, provincia, phone, phoneW } = this.state;
+        const { dpropio, hotel, cabaña, domicilio, viaje, name, aboutme, linkTwitter, linkInstagram, age, distrito, departament, provincia, phone, phoneW, category, findesemana, amanecida, hours1, hours2, hours3, hours4, sexo } = this.state;
         return(
             <form onSubmit={this.handlerSubmit}>
                 {this.state.success &&
@@ -141,23 +221,30 @@ export default class FormularioPublico extends Component{
                 </div>
                 <h5 style={{color: 'gray'}} className="text-left pb-3 pt-3" id="Mi lugar de ubicacion">Mi lugar de ubicacion</h5>  
                 <div className="form-row">
-                    <div className="form-group col-md-4">
+                    <div className="form-group col-md-3">
+                        <label for="inputState" style={{color: 'gray'}}>Pais</label>
+                        <select id="inputState" className="form-control" name="departament" value={departament} onChange={this.handlerChange} style={{background: 'transparent', borderColor: 'gray'}}>
+                            <option selected>Selecionar...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div className="form-group col-md-3">
                         <label for="inputState" style={{color: 'gray'}}>Departamento</label>
-                        <select id="inputState" className="form-control" name="departament" value={departament} onChange={this.handlerChange} style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}>
+                        <select id="inputState" className="form-control" name="departament" value={departament} onChange={this.handlerChange} style={{background: 'transparent', borderColor: 'gray'}}>
                             <option selected>Selecionar...</option>
                             <option>...</option>
                         </select>
                     </div>
-                    <div className="form-group col-md-4">
+                    <div className="form-group col-md-3">
                         <label for="inputState" style={{color: 'gray'}}>Provincia</label>
-                        <select id="inputState" className="form-control" name="provincia" value={provincia} onChange={this.handlerChange} style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}>
+                        <select id="inputState" className="form-control" name="provincia" value={provincia} onChange={this.handlerChange} style={{background: 'transparent', borderColor: 'gray'}}>
                             <option selected>Selecionar...</option>
                             <option>...</option>
                         </select>
                     </div>
-                    <div className="form-group col-md-4">
+                    <div className="form-group col-md-3">
                         <label for="inputState" style={{color: 'gray'}}>Distrito</label>
-                        <select id="inputState" className="form-control" name="distrito" value={distrito} onChange={this.handlerChange} style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}>
+                        <select id="inputState" className="form-control" name="distrito" value={distrito} onChange={this.handlerChange} style={{background: 'transparent', borderColor: 'gray'}}>
                             <option selected>Selecionar...</option>
                             <option>...</option>
                         </select>
@@ -201,12 +288,84 @@ export default class FormularioPublico extends Component{
                 
                 <h5 style={{color: 'gray'}} className="text-left pb-3 pt-3" id="commercial">Mis servicios</h5>
                 <label for="currency-field" style={{color: 'gray'}}>MI SEXO</label>
-                <select name="transporte" className="custom-select" name="sexo" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}>
-                    <option selected>Selecionar...</option>
-                    <option value="text">HOMBRE</option>
-                    <option value="2">MUJER</option>
-                    <option value="3">TRANSESUAL</option>
+                <select name="transporte" className="custom-select" name="sexo" style={{background: 'transparent', borderColor: 'gray'}} value={sexo} onChange={this.handlerChange}>
+                    <option>Selecionar...</option>
+                    <option value="hombre">HOMBRE</option>
+                    <option value="mujer">MUJER</option>
+                    <option value="3">TRANSESUAL (Pronto)</option>
+                    <option value="4">LESBIANA (Pronto)</option>
                 </select>
+                <h5 style={{color: 'gray'}} className="text-left pb-3 pt-3" id="commercial">Categorias</h5>
+                <div className="row">
+                {categories.map(category => (
+                <div className="col-lg-4 col-md-6">
+                  <div className="speaker text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src={category.image} alt={category.name} className="img-fluid"/>
+                    <div className="details">
+                      <h5><a href="" className="text-white text-decoration-none">{category.name}</a></h5>
+                      <div className="social">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ))}
+                </div>
+                <label for="currency-field" style={{color: 'gray'}}>Categoria de servicio</label>
+                <select name="transporte" className="custom-select" name="category" style={{background: 'transparent', borderColor: 'gray'}} value={category} onChange={this.handlerChange}>
+                    <option>Selecionar...</option>
+                    {this.state.sexo === 'hombre' && hombre.map(row => (
+                        <option value={row}>{row}</option>
+                    ))
+                    }
+                    {this.state.sexo === 'mujer' && mujer.map(row => (
+                        <option value={row}>{row}</option>
+                    ))
+                    }
+                </select>
+                <h5 className="mt-4" style={{color: 'gray'}}>Ingresar mi valor por servicio</h5>
+                <p style={{color: 'gray'}}>
+                RANGO DE PRECIOS "PRECIO SERVICIO" <br/>
+                VIP: Tarifa de S/ 400.00 en adelante"<br/>
+                PREMIUN: Tarifa Entre S/ 300.00 Y S/399.00 por hora"<br/>
+                GOLD: Tarifa entre S/200.00 y S/299.00 por hora"<br/>
+                SILVER : Tarifa por menos de S/199.00 por hora"</p>
+                <h5 className="mt-4" style={{color: 'gray'}}>Descripcion Tarifas</h5>
+                <div class="form-group row">
+                    <label style={{color: 'gray'}} className="col-sm-4 col-form-label">1 Hora</label>
+                    <div class="col-sm-8">
+                        <input type="number" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}  name="hours1" value={hours1} onChange={this.handlerChange} placeholder="Precio"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label style={{color: 'gray'}} className="col-sm-4 col-form-label">2 Hora</label>
+                    <div class="col-sm-8">
+                        <input type="number" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}  name="hours2" value={hours2} onChange={this.handlerChange} placeholder="Precio"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label style={{color: 'gray'}} className="col-sm-4 col-form-label">3 Hora</label>
+                    <div class="col-sm-8">
+                        <input type="number" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}  name="hours3" value={hours3} onChange={this.handlerChange} placeholder="Precio"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label style={{color: 'gray'}} className="col-sm-4 col-form-label">4 Hora</label>
+                    <div class="col-sm-8">
+                        <input type="number" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}  name="hours4" value={hours4} onChange={this.handlerChange} placeholder="Precio"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label style={{color: 'gray'}} className="col-sm-4 col-form-label">Amanecida</label>
+                    <div class="col-sm-8">
+                        <input type="number" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}  name="amanecida" value={amanecida} onChange={this.handlerChange} placeholder="Precio"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label style={{color: 'gray'}} className="col-sm-4 col-form-label">Fin de semana</label>
+                    <div class="col-sm-8">
+                        <input type="number" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}}  name="findesemana" value={findesemana} onChange={this.handlerChange} placeholder="Precio"/>
+                    </div>
+                </div>
                 <button className="btn btn-secreto-primary float-right mt-5" type="submit">Guardar y Enviar</button>
             </form>
         )

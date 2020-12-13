@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { DefaultLayout } from "./layouts";
 
 import Home from "./views/Home";
+import Category from "./views/Category";
 import User from "./views/Users/User";
 import Profile from "./views/Users/Profile";
 import PerfilPublico from "./views/Users/PerfilPublico";
@@ -36,8 +37,8 @@ export default [
     component: PerfilPublico
   },
   {
-    path: "/vip",
-    layout: DefaultLayout,
-    component: Home
+    path: "/category",
+    layout: Category,
+    component: Category
   }
 ];

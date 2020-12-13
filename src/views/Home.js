@@ -292,9 +292,11 @@ export default class Home extends Component{
               {categories.map(category => (
                 <div className="col-lg-4 col-md-6">
                   <div className="speaker" data-aos="fade-up" data-aos-delay="100">
-                    <img src={category.image} alt={category.name} className="img-fluid"/>
+                    <a href="javascript:void(0)" onClick={() => this.props.history.push({ pathname: '/category', state: { detail: category.name.toLowerCase() }})}>
+                      <img src={category.image} alt={category.name} className="img-fluid"/>
+                    </a>
                     <div className="details">
-                      <h3><a href="">{category.name}</a></h3>
+                      <a href="javascript:void(0)" onClick={() => this.props.history.push({ pathname: '/category', state: { detail: category.name.toLowerCase() }})}><h3>{category.name}</h3></a>
                       <p>{category.paragraph}</p>
                       <div className="social">
                         <a href="" className="ml-1"><i className="fa fa-heart-o"></i></a>

@@ -20,6 +20,7 @@ export default class Profile extends Component{
             phone: '',
             email: '',
             user: '',
+            selfieV: '',
             images: [],
             success: false
         }
@@ -41,9 +42,9 @@ export default class Profile extends Component{
         client.onmessage = (message) => {
             let res = JSON.parse(message.data);
             console.log(res);
-            const { name, lastName, document, email, country, phone, user, images } = res['resp_'][3];
+            const { name, lastName, document, email, country, phone, user, images, selfieV } = res['resp_'][3];
             this.setState({
-                name, lastName, document, email, country, phone, user, images
+                name, lastName, document, email, country, phone, user, images, selfieV
             })
             client.close();
         };
@@ -107,9 +108,6 @@ export default class Profile extends Component{
                                         <li role="presentation">
                                             <a href="javascript:void;" onClick={() => this.setState({ viewActive: 'pagos' })}>Pagos de las tarifas</a>
                                         </li>
-                                        <li role="presentation">
-                                            <a href="javascript:void;" onClick={() => this.setState({ viewActive: 'contacto' })}>Contacto</a>
-                                        </li>
                                     </ul>
                                     <div className="footer">
                                         <p>
@@ -124,41 +122,47 @@ export default class Profile extends Component{
                                 {this.state.viewActive === 'personal-data' &&
                                 <div className={"card card-body "} style={{background: '#1d1919'}}>
                                     <h3 className="mb-4" style={{color: 'gray'}}>Datos Personales</h3>
-                                    <form onSubmit={this.handlerSubmit}>
-                                        {this.state.success &&
-                                        <div className="alert alert-success">
-                                            {this.state.message}
+                                    <form onSubmit={this.handlerSubmit} className="row justify-content-end">
+                                        <div className="col-md-6">
+                                            {this.state.success &&
+                                            <div className="alert alert-success">
+                                                {this.state.message}
+                                            </div>
+                                            }
+                                            <div className="form-row">
+                                                <div className="form-group col-md-12">
+                                                    <label for="inputName" style={{color: 'gray'}} >Nombre</label>
+                                                    <input type="text" name="name" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={name} id="inputName" placeholder="Nombres" />
+                                                </div>
+                                                <div className="form-group col-md-12">
+                                                    <label for="inputLastName" style={{color: 'gray'}} >Apellidos</label>
+                                                    <input type="text" name="lastName" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={lastName} id="inputLastName" placeholder="Apellidos" />
+                                                </div>
+                                                <div className="form-group col-md-12">
+                                                    <label for="inputNationality" style={{color: 'gray'}} >Documento</label>
+                                                    <input type="text" className="form-control" name="document" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={document} id="inputNationality" placeholder="Documento" />
+                                                </div>
+                                                <div className="form-group col-md-12">
+                                                    <label for="inputNationality" style={{color: 'gray'}} >Nacionalidad</label>
+                                                    <input type="text" className="form-control" name="country" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={country} id="inputNationality" placeholder="Pais de origen" />
+                                                </div>
+                                                <div className="form-group col-md-12">
+                                                    <label for="inputFhone" style={{color: 'gray'}} >Telefono</label>
+                                                    <input type="text" className="form-control" name="phone" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={phone} id="inputphone" placeholder="Numero telefonico" />
+                                                </div>
+                                            </div>
+                                            <div className="form-row">
+                                                <div className="form-group col-md-12">
+                                                    <label for="inputEmail4"  style={{color: 'gray'}} >Correo Electronico</label>
+                                                    <input type="email" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} value={email}  id="inputEmail4" placeholder="Correo" />
+                                                </div>
+                                            </div>
                                         </div>
-                                        }
-                                        <div className="form-row">
-                                            <div className="form-group col-md-6">
-                                                <label for="inputName" style={{color: 'gray'}} >Nombre</label>
-                                                <input type="text" name="name" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={name} id="inputName" placeholder="Nombres" />
-                                            </div>
-                                            <div className="form-group col-md-6">
-                                                <label for="inputLastName" style={{color: 'gray'}} >Apellidos</label>
-                                                <input type="text" name="lastName" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={lastName} id="inputLastName" placeholder="Apellidos" />
-                                            </div>
-                                            <div className="form-group col-md-4">
-                                                <label for="inputNationality" style={{color: 'gray'}} >Documento</label>
-                                                <input type="text" className="form-control" name="document" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={document} id="inputNationality" placeholder="Documento" />
-                                            </div>
-                                            <div className="form-group col-md-4">
-                                                <label for="inputNationality" style={{color: 'gray'}} >Nacionalidad</label>
-                                                <input type="text" className="form-control" name="country" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={country} id="inputNationality" placeholder="Pais de origen" />
-                                            </div>
-                                            <div className="form-group col-md-4">
-                                                <label for="inputFhone" style={{color: 'gray'}} >Telefono</label>
-                                                <input type="text" className="form-control" name="phone" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} onChange={this.handlerChange} value={phone} id="inputphone" placeholder="Numero telefonico" />
-                                            </div>
+                                        <div className="col-md-6 text-center">
+                                            <img src={this.state.selfieV ? this.state.selfieV : require('../../images/logo.png')} width="90%" height="85%" />
+                                            <a href="" className="btn btn-anunciate mt-4" data-toggle="modal" data-target="#cameraPersonalData">Tomar selfie</a> 
                                         </div>
-                                        <div className="form-row">
-                                            <div className="form-group col-md-8">
-                                                <label for="inputEmail4"  style={{color: 'gray'}} >Correo Electronico</label>
-                                                <input type="email" className="form-control" style={{background: 'transparent', borderColor: 'gray', color: '#fff'}} value={email}  id="inputEmail4" placeholder="Correo" />
-                                            </div>
-                                        </div>
-                                        <button className="btn btn-secreto-primary float-right mt-5" type="submit">Guardar y Enviar</button>
+                                        <button className="btn btn-secreto-primary col-md-3 mt-5 mr-3" type="submit">Guardar y Enviar</button>
                                     </form>
                                 </div>
                                 }
@@ -182,7 +186,8 @@ export default class Profile extends Component{
                                                 ))
                                             }
                                         </div>
-                                        <a href="" className="btn btn-anunciate" data-toggle="modal" data-target="#camera">Tomar selfie</a> 
+                                        <a href="" className="btn btn-anunciate mr-1" data-toggle="modal" data-target="#camera">Tomar selfie</a>
+                                        <Dropzone />
                                     </form>
                                     
                                 </div>
@@ -225,6 +230,24 @@ export default class Profile extends Component{
                             </div>
                             <div class="modal-body row justify-content-center">
                                 <WebCam />
+                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" tabindex="-1" id="cameraPersonalData">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-dark">Tomar Captura</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body row justify-content-center">
+                                <WebCam selfie="verificacion" />
                             </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
